@@ -1,0 +1,10 @@
+﻿namespace BloodDonationSystem.DTOs.Blog
+{
+    public class UpdateBlogPostDto
+    {
+        public string Title { get; set; } = string.Empty;
+        public string Content { get; set; } = string.Empty;
+        public string ImageUrl { get; set; } = string.Empty;
+
+    }
+}
