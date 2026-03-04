@@ -13,5 +13,8 @@ namespace BloodDonationSystem.DTOs.User
         public bool IsActive { get; set; }
         public DateTime CreatedAt { get; set; }
 
+        // ✅ مضاف
+        public string? ProfilePicture { get; set; }
+
     }
 }

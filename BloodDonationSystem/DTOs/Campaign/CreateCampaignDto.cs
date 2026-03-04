@@ -10,5 +10,8 @@
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
 
+        // ✅ مضاف
+        public string? ImageUrl { get; set; }
+
     }
 }

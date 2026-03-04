@@ -5,6 +5,7 @@ using BloodDonationSystem.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using BloodDonationSystem.Middleware;
 using Microsoft.IdentityModel.Tokens;
 using Scalar.AspNetCore;
 using System.Text;
@@ -61,6 +62,17 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddAuthorization();
 
+// ✅ مضاف — CORS للـ React
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowReact", policy =>
+    {
+        policy.WithOrigins("http://localhost:5173") // React dev server
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
 // ── Application Services ──────────────────────────────────────
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IUserService, UserService>();
@@ -73,6 +85,11 @@ builder.Services.AddScoped<IAdminDashboardService, AdminDashboardService>();
 
 // ─────────────────────────────────────────────────────────────
 var app = builder.Build();
+
+
+// ✅ مضاف — Global Exception Handler (لازم يكون أول حاجة)
+app.UseMiddleware<GlobalExceptionHandler>();
+
 
 // ── Seed Roles on startup ─────────────────────────────────────
 using (var scope = app.Services.CreateScope())
@@ -93,6 +110,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// ✅ مضاف
+app.UseStaticFiles();
+app.UseCors("AllowReact");
 
 app.UseAuthentication();   // ← MUST be before UseAuthorization
 app.UseAuthorization();

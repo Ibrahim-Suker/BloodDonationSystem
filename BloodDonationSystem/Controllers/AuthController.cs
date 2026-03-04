@@ -20,30 +20,16 @@ namespace BloodDonationSystem.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterDto dto)
         {
-            try
-            {
-                var result = await _authService.RegisterAsync(dto);
-                return Ok(result);
-            }
-            catch (InvalidOperationException ex)
-            {
-                return BadRequest(new { message = ex.Message });
-            }
+            var result = await _authService.RegisterAsync(dto);
+            return Ok(result);
         }
 
         // POST api/auth/login
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginDto dto)
         {
-            try
-            {
-                var result = await _authService.LoginAsync(dto);
-                return Ok(result);
-            }
-            catch (UnauthorizedAccessException ex)
-            {
-                return Unauthorized(new { message = ex.Message });
-            }
+            var result = await _authService.LoginAsync(dto);
+            return Ok(result);
         }
     }
 }

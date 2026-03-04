@@ -64,6 +64,29 @@ namespace BloodDonationSystem.Services
             await _userManager.DeleteAsync(user);
         }
 
+        // ✅ مضاف — Get Profile
+        public async Task<UserDetailsDto> GetProfileAsync(string userId)
+        {
+            var user = await _userManager.FindByIdAsync(userId)
+                ?? throw new KeyNotFoundException("User not found.");
+            return MapToDto(user);
+        }
+
+        // ✅ مضاف — Update Profile
+        public async Task<UserDetailsDto> UpdateProfileAsync(string userId, UpdateUserDto dto)
+        {
+            var user = await _userManager.FindByIdAsync(userId)
+                ?? throw new KeyNotFoundException("User not found.");
+
+            user.FullName = dto.FullName;
+            user.PhoneNumber = dto.PhoneNumber;
+            user.BloodType = dto.BloodType;
+            user.ProfilePicture = dto.ProfilePicture;
+
+            await _userManager.UpdateAsync(user);
+            return MapToDto(user);
+        }
+
         private static UserDetailsDto MapToDto(ApplicationUser u) => new()
         {
             Id = u.Id,
@@ -73,7 +96,9 @@ namespace BloodDonationSystem.Services
             BloodType = u.BloodType,
             Role = u.Role,
             IsActive = u.IsActive,
-            CreatedAt = u.CreatedAt
+            CreatedAt = u.CreatedAt,
+            ProfilePicture = u.ProfilePicture   // ✅ مضاف
+
         };
 
     }

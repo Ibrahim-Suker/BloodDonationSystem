@@ -22,6 +22,12 @@ namespace BloodDonationSystem.Controllers
         public async Task<IActionResult> GetAll()
         {
             var result = await _campaignService.GetAllCampaignsAsync();
+
+            // Users يشوفوا الـ active بس — Admin يشوف الكل
+            var isAdmin = User.IsInRole("Admin");
+            if (!isAdmin)
+                result = result.Where(c => c.IsActive).ToList();
+
             return Ok(result);
         }
     }

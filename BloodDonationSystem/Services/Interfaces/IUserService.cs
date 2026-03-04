@@ -11,5 +11,9 @@ namespace BloodDonationSystem.Services.Interfaces
         Task ChangeRoleAsync(ChangeRoleDto dto);
         Task DeleteUserAsync(string id);
 
+        // ✅ مضاف
+        Task<UserDetailsDto> GetProfileAsync(string userId);
+        Task<UserDetailsDto> UpdateProfileAsync(string userId, UpdateUserDto dto);
+
     }
 }

@@ -27,7 +27,9 @@ namespace BloodDonationSystem.Services
                 Longitude = dto.Longitude,
                 StartDate = dto.StartDate,
                 EndDate = dto.EndDate,
-                IsActive = true
+                IsActive = true,
+                ImageUrl = dto.ImageUrl,   // ✅ مضاف
+
             };
 
             _context.Campaigns.Add(campaign);
@@ -47,6 +49,8 @@ namespace BloodDonationSystem.Services
             campaign.Longitude = dto.Longitude;
             campaign.StartDate = dto.StartDate;
             campaign.EndDate = dto.EndDate;
+            campaign.ImageUrl = dto.ImageUrl;   // ✅ مضاف
+
 
             await _context.SaveChangesAsync();
             return MapToDto(campaign);
@@ -88,7 +92,9 @@ namespace BloodDonationSystem.Services
             Longitude = c.Longitude,
             StartDate = c.StartDate,
             EndDate = c.EndDate,
-            IsActive = c.IsActive
+            IsActive = c.IsActive,
+            ImageUrl = c.ImageUrl   // ✅ مضاف
+
         };
     }
 }

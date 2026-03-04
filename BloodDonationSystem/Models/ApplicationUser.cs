@@ -11,6 +11,10 @@ namespace BloodDonationSystem.Models
         public bool IsActive { get; set; } = true;
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
+        // ✅ مضاف
+        public string? ProfilePicture { get; set; }
+
+
         // Navigation Properties
         public ICollection<Donation> Donations { get; set; } = new List<Donation>();
         public ICollection<BloodRequest> BloodRequests { get; set; } = new List<BloodRequest>();

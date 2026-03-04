@@ -6,5 +6,8 @@
         public string? PhoneNumber { get; set; }
         public BloodDonationSystem.Enums.BloodType BloodType { get; set; }
 
+        // ✅ مضاف
+        public string? ProfilePicture { get; set; }
+
     }
 }
