@@ -2,9 +2,32 @@
 
 Full-stack platform connecting **blood donors**, **hospitals / patients**, and **administrators**.
 
-[![.NET](https://img.shields.io/badge/.NET-9.0-512BD4?style=for-the-badge&logo=dotnet)](https://dotnet.microsoft.com)
-[![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react)](https://react.dev)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+<p align="center">
+  <img src="https://img.shields.io/badge/.NET-9.0-512BD4?style=for-the-badge&logo=dotnet&logoColor=white" alt=".NET 9" />
+  <img src="https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React 18" />
+  <img src="https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
+  <img src="https://img.shields.io/badge/Material%20UI-007FFF?style=for-the-badge&logo=mui&logoColor=white" alt="MUI" />
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=json-web-tokens" alt="JWT" />
+  <img src="https://img.shields.io/badge/Entity%20Framework%20Core-0078D4?style=for-the-badge&logo=dotnet" alt="EF Core" />
+  <img src="https://img.shields.io/badge/SQL%20Server-CC2927?style=for-the-badge&logo=microsoft-sql-server&logoColor=white" alt="SQL Server" />
+  <img src="https://img.shields.io/badge/ASP.NET%20Core-5C2D91?style=for-the-badge&logo=.net" alt="ASP.NET Core" />
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Arabic%20Support-RTL-success?style=for-the-badge" alt="RTL Support" />
+  <img src="https://img.shields.io/badge/34%20Endpoints-blueviolet?style=for-the-badge" alt="34 Endpoints" />
+  <img src="https://img.shields.io/badge/3%20Roles-red?style=for-the-badge" alt="3 Roles" />
+  <img src="https://img.shields.io/badge/Image%20Upload-green?style=for-the-badge" alt="Image Upload" />
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge" alt="MIT License" />
+  <img src="https://img.shields.io/github/last-commit/Ibrahim-Suker/blood-donation-docs?style=for-the-badge" alt="Last Commit" />
+  <img src="https://img.shields.io/github/repo-size/Ibrahim-Suker/blood-donation-docs?style=for-the-badge" alt="Repo Size" />
+</p>
 
 ## Overview
 
