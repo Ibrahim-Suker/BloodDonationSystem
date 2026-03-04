@@ -1,27 +1,86 @@
-# 🩸 Blood Donation System — Backend API
+# 🩸 Blood Donation Management System  
+**نظام إدارة التبرع بالدم** — منصة تربط بين المتبرعين والمستشفيات/المرضى
 
-A secure and scalable Blood Donation Management System built with **ASP.NET Core Web API (.NET 9)** using **JWT Authentication**, **ASP.NET Core Identity**, and **SQL Server**.
+[![.NET](https://img.shields.io/badge/.NET-9.0-512BD4?style=for-the-badge&logo=dotnet)](https://dotnet.microsoft.com)
+[![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react)](https://react.dev)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
----
+## نظرة عامة على المشروع
 
-## 🏗 Project Information
+نظام كامل (Backend + Frontend) لإدارة عمليات **التبرع بالدم** يدعم ثلاثة أدوار رئيسية:
 
-- **Framework:** ASP.NET Core Web API — .NET 9  
-- **Database:** SQL Server  
-- **Authentication:** JWT + ASP.NET Core Identity  
-- **API Documentation:** Scalar UI → `/scalar/v1`  
-- **CORS:** Enabled for React (`http://localhost:5173`)  
+- **Admin** 👑 — إدارة كاملة (مستخدمين، طلبات، تبرعات، حملات، مدونة، إشعارات)
+- **Donor** 🩸 — تسجيل تبرعات + متابعة السجل الشخصي
+- **Receiver** 🏥 — تقديم طلبات دم عاجلة / عادية + متابعة حالة الطلب
 
----
+### المميزات الرئيسية
 
-## 📦 NuGet Packages
+- تسجيل / تسجيل دخول باستخدام **JWT**
+- 3 أدوار مع صلاحيات منفصلة تمامًا
+- إدارة حملات التبرع + رفع صور
+- مدونة تعليمية + نظام تعليقات
+- إشعارات (عامة / لمستخدم معين / حسب فصيلة الدم)
+- لوحة تحكم إدارية بإحصائيات حية
+- رفع صور لـ (الملف الشخصي / الحملات / المدونة)
+- دعم كامل للغة العربية (RTL) في الواجهة الأمامية
+
+## 📚 التوثيق الرئيسي للمطورين (Frontend Handoff)
+
+كل ما تحتاجه لربط الـ **React Frontend** بالـ **Backend** موجود في الملف التالي:
+
+**[BloodDonation_Frontend_Handoff_FINAL.html](BloodDonation_Frontend_Handoff_FINAL.html)**
+
+### يحتوي الملف على:
+
+- إعداد Axios + Interceptors (token تلقائي + 401 redirect)
+- Auth Flow كامل (login / register / decode JWT / redirect حسب الـ role)
+- جميع الـ **Enums** (BloodType, UserRole, RequestStatus, DonationStatus, DonationType)
+- شكل الـ Error Responses
+- كيفية رفع الصور (multipart/form-data)
+- وصف **كل endpoint** من الـ 34 endpoint مع:
+  - Method + Path
+  - الصلاحيات المطلوبة
+  - Request Body (إن وجد)
+  - Response مثالية
+  - ملاحظات خاصة
+
+→ **هذا الملف هو المرجع الوحيد** الذي يجب على مطور الـ frontend الاعتماد عليه.
+
+## 🛠 التقنيات المستخدمة
+
+### Backend
+- ASP.NET Core 9 Web API
+- Entity Framework Core 9 + SQL Server
+- ASP.NET Core Identity + JWT Authentication
+- Scalar UI لتوثيق الـ API (`/scalar/v1`)
+- Role-based Authorization
+
+### Frontend
+- React 18 + Vite
+- Material UI (MUI) + MUI Icons
+- Axios + react-router-dom
+- jwt-decode
+
+## 🚀 كيفية التشغيل (Backend + Frontend)
+
+### المتطلبات
+
+- .NET 9 SDK
+- Node.js 18+ و npm / pnpm / yarn
+- SQL Server (Express أو Developer)
+- Visual Studio 2022/2025 أو VS Code + C# extensions
+
+### تشغيل الـ Backend
 
 ```bash
-Microsoft.AspNetCore.Authentication.JwtBearer     9.0.3
-Microsoft.AspNetCore.Identity.EntityFrameworkCore 9.0.3
-Microsoft.AspNetCore.OpenApi                      9.0.3
-Microsoft.EntityFrameworkCore.SqlServer           9.0.3
-Microsoft.EntityFrameworkCore.Tools               9.0.3
-Microsoft.EntityFrameworkCore.Design              9.0.3
-Scalar.AspNetCore                                 2.12.50
-System.IdentityModel.Tokens.Jwt                   8.16.0
+cd backend/BloodDonation.API
+
+# استعادة الحزم
+dotnet restore
+
+# (أول مرة فقط) تطبيق الـ migrations
+dotnet ef database update
+
+# تشغيل
+dotnet run
+# أو اضغط F5 في Visual Studio
