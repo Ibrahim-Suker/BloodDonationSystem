@@ -29,7 +29,8 @@ Complete blood donation management system with three main roles:
 
 **Everything a frontend developer needs to connect React to the backend is in this single file:**
 
-**[BloodDonation_Frontend_Handoff_FINAL.html](docs/BloodDonation_Frontend_Handoff_FINAL.html)**
+**[BloodDonation_Frontend_Handoff_FINAL.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/Ibrahim-Suker/blood-donation-docs/main/BloodDonation_Frontend_Handoff_FINAL.html)**  
+*(click to view rendered documentation page)*
 
 ### This handoff document contains:
 
