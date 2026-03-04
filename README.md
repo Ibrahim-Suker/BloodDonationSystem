@@ -86,3 +86,14 @@ dotnet ef database update
 # Run
 dotnet run
 # or press F5 in Visual Studio
+
+
+### خطوة واحدة فقط دلوقتي:
+
+انسخ الكود أعلاه كله → روح على الـ repository بتاعك<a href="https://github.com/Ibrahim-Suker/blood-donation-docs" target="_blank" rel="noopener noreferrer nofollow"></a>  
+→ اضغط على **README.md** (لو موجود) أو **Add file → Create new file** وسميه `README.md`  
+→ الصق الكود كله → Commit changes
+
+خلاص — الـ README هيظهر بشكل احترافي جدًا، والرابط بتاع الـ handoff هيفتح الصفحة المنسقة مباشرة.
+
+لو عايز تضيف صور (screenshots) بعدين، قولي وأساعدك نضيفهم في الـ README.
